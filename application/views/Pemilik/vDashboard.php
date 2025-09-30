@@ -19,7 +19,7 @@
 			<div class="col-md-6 grid-margin stretch-card">
 				<div class="card tale-bg">
 					<div class="card-people mt-auto">
-						<img src="<?= base_url('asset/skydash/') ?>images/dashboard/people.svg" alt="people">
+						<img style="opacity: 75%;" src="<?= base_url('asset/a.jpg') ?>" alt="people">
 						<div class="weather-info">
 							<div class="d-flex">
 								<div>
@@ -84,5 +84,49 @@
 				</div>
 			</div>
 		</div>
+		<hr>
+		<div class="row">
+			<?php
+			$dt_mobil = $this->db->query("SELECT * FROM `spk_smart_penilaian`")->result();
+			?>
+			<div class="col-lg-12">
+				<div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+					<div class="carousel-inner">
+						<?php
+						$no = 1;
+						foreach ($dt_mobil as $key => $value) {
+						?>
+							<div class="carousel-item <?php if ($no++ == 1) {
+															echo 'active';
+														} ?>">
+								<img style="height: 400px; opacity:65%;" src="<?= base_url('asset/gambar/' . $value->gambar) ?>" class="d-block w-100" alt="...">
+								<div class="carousel-caption d-none d-md-block text-black">
+									<strong>
+										<h3><?= $value->nama_jenis ?></h3>
+										<p>Harga
+										<h5>Rp. <?= number_format($value->harga) ?></h5>
+										</p>
 
+									</strong>
+
+								</div>
+							</div>
+
+						<?php
+						}
+						?>
+
+
+					</div>
+					<button class="carousel-control-prev" type="button" data-target="#carouselExampleControls" data-slide="prev">
+						<span class="carousel-control-prev-icon" aria-hidden="true"></span>
+						<span class="sr-only">Previous</span>
+					</button>
+					<button class="carousel-control-next" type="button" data-target="#carouselExampleControls" data-slide="next">
+						<span class="carousel-control-next-icon" aria-hidden="true"></span>
+						<span class="sr-only">Next</span>
+					</button>
+				</div>
+			</div>
+		</div>
 	</div>

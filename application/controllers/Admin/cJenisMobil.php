@@ -146,25 +146,79 @@ class cJenisMobil extends CI_Controller
 	}
 	public function create()
 	{
-		$data = array(
-			'nama_jenis' => $this->input->post('nama'),
-			'kondisi' => $this->input->post('kondisi'),
-			'kapasitas' => $this->input->post('kapasitas'),
-			'tahun' => $this->input->post('tahun'),
-			'harga' => $this->input->post('harga')
-		);
-		$this->mJenisMobil->insert($data);
+		$config['upload_path']          = './asset/gambar';
+		$config['allowed_types']        = 'gif|jpg|png|jpeg';
+		$config['max_size']             = 500000;
 
-		//menyimpan data di tabel hasil smart
-		$id = $this->db->query("SELECT MAX(id_penilaian) as penilaian FROM `spk_smart_penilaian`")->row();
-		$this->penilaian($data['kondisi'], $data['kapasitas'], $data['tahun'], $data['harga'], 1, $id->penilaian);
+		$this->load->library('upload', $config);
 
-		$this->perhitungan_smart();
-		$this->session->set_flashdata('success', 'Data Jenis Mobil berhasil disimpan!');
-		redirect('Admin/cJenisMobil');
+		if (!$this->upload->do_upload('gambar')) {
+			$data = array(
+				'jenis_mobil' => $this->mJenisMobil->select()
+			);
+			$this->load->view('Admin/Layout/head');
+			$this->load->view('Admin/vJenisMobil', $data);
+			$this->load->view('Admin/Layout/footer');
+		} else {
+			$upload_data = $this->upload->data();
+			$data = array(
+				'nama_jenis' => $this->input->post('nama'),
+				'kondisi' => $this->input->post('kondisi'),
+				'kapasitas' => $this->input->post('kapasitas'),
+				'tahun' => $this->input->post('tahun'),
+				'harga' => $this->input->post('harga'),
+				'gambar' => $upload_data['file_name']
+			);
+			$this->mJenisMobil->insert($data);
+
+			//menyimpan data di tabel hasil smart
+			$id = $this->db->query("SELECT MAX(id_penilaian) as penilaian FROM `spk_smart_penilaian`")->row();
+			$this->penilaian($data['kondisi'], $data['kapasitas'], $data['tahun'], $data['harga'], 1, $id->penilaian);
+
+			$this->perhitungan_smart();
+			$this->session->set_flashdata('success', 'Data Jenis Mobil berhasil disimpan!');
+			redirect('Admin/cJenisMobil');
+		}
 	}
 	public function update($id)
 	{
+
+		$config['upload_path']          = './asset/gambar';
+		$config['allowed_types']        = 'gif|jpg|png|jpeg';
+		$config['max_size']             = 500000;
+
+		$this->load->library('upload', $config);
+
+
+		if (!$this->upload->do_upload('gambar')) {
+
+			$data = array(
+				'jenis_mobil' => $this->mJenisMobil->select()
+			);
+			$this->load->view('Admin/Layout/head');
+			$this->load->view('Admin/vJenisMobil', $data);
+			$this->load->view('Admin/Layout/footer');
+		} else {
+
+			$upload_data = $this->upload->data();
+			$data = array(
+				'nama_jenis' => $this->input->post('nama'),
+				'kondisi' => $this->input->post('kondisi'),
+				'kapasitas' => $this->input->post('kapasitas'),
+				'tahun' => $this->input->post('tahun'),
+				'harga' => $this->input->post('harga'),
+				'gambar' => $upload_data['file_name']
+			);
+			$this->mJenisMobil->update($id, $data);
+
+			//memperbaharui data di tabel hasil smart
+			$this->penilaian($data['kondisi'], $data['kapasitas'], $data['tahun'], $data['harga'], 2, $id);
+
+			$this->perhitungan_smart();
+			$this->session->set_flashdata('success', 'Data Jenis Mobil berhasil diperbaharui!');
+			redirect('Admin/cJenisMobil');
+		} //tanpa ganti gambar
+		$upload_data = $this->upload->data();
 		$data = array(
 			'nama_jenis' => $this->input->post('nama'),
 			'kondisi' => $this->input->post('kondisi'),
