@@ -4,9 +4,10 @@
 			<div class="col-lg-12 grid-margin stretch-card">
 				<div class="card">
 					<div class="card-body">
-						<h4 class="card-title">Hasil Rekomendasi Jenis Mobil</h4>
-						<a class="btn btn-primary" href="<?= base_url('Admin/cPerbandingan/view_perhitungan') ?>">View Perhitungan Perbandingan Metode SMART</a>
-
+						<h4 class="card-title">Rekomendasi Pelanggan</h4>
+						<a href="<?= base_url('Admin/cRekomendasi/create') ?>" class="btn btn-primary">
+							Tambah Data Rekomendasi
+						</a>
 						<?php
 						if ($this->session->userdata('success')) {
 						?>
@@ -19,41 +20,34 @@
 						<?php
 						}
 						?>
-
-
 						<div class="table-responsive">
 							<table id="myTable" class="table">
 								<thead>
 									<tr>
 										<th>No</th>
-										<th>Nama Mobil</th>
-										<th>Tahun</th>
-										<th>Harga</th>
-										<th>Kondisi Interior</th>
-										<th>Kapasitas Penumpang</th>
-										<th>Hasil</th>
+										<th>Nama Pelanggan</th>
+										<th>Nomor Telepon</th>
+										<th>Jenis Kelamin</th>
+										<th>Alamat</th>
+										<th>Action</th>
 									</tr>
 								</thead>
 								<tbody>
 									<?php
 									$no = 1;
-									foreach ($hasil_rekomendasi as $key => $value) {
+									foreach ($pelanggan as $key => $value) {
 									?>
 										<tr>
 											<td><?= $no++ ?>.</td>
-											<td><?= $value->nama_jenis ?></td>
-											<td><?= $value->tahun ?></td>
-											<td>Rp. <?= number_format($value->harga)  ?></td>
-											<td><?= $value->kondisi ?></td>
-											<td><?= $value->kapasitas ?> orang</td>
-											<td><?= $value->hasil ?></td>
-
+											<td><?= $value->nama_pelanggan ?></td>
+											<td><?= $value->no_hp ?></td>
+											<td><?= $value->jk ?></td>
+											<td><?= $value->alamat ?></td>
+											<td><?= $value->id_pelanggan ?></td>
 										</tr>
 									<?php
 									}
 									?>
-
-
 								</tbody>
 							</table>
 						</div>

@@ -17,9 +17,10 @@
  <!-- plugins:js -->
  <script src="<?= base_url('asset/skydash/') ?>vendors/js/vendor.bundle.base.js"></script>
 
- <script src="<?= base_url('asset/skydash/') ?>vendors/chart.js/Chart.min.js"></script>
+ <!-- <script src="<?= base_url('asset/skydash/') ?>vendors/chart.js/Chart.min.js"></script> -->
 
-
+ <script src="<?= base_url('asset/skydash/') ?>vendors/typeahead.js/typeahead.bundle.min.js"></script>
+ <script src="<?= base_url('asset/skydash/') ?>vendors/select2/select2.min.js"></script>
  <!-- End plugin js for this page -->
  <!-- inject:js -->
  <script src="<?= base_url('asset/skydash/') ?>js/off-canvas.js"></script>
@@ -28,16 +29,27 @@
  <script src="<?= base_url('asset/skydash/') ?>js/settings.js"></script>
  <script src="<?= base_url('asset/skydash/') ?>js/todolist.js"></script>
  <!-- endinject -->
+
+ <script src="<?= base_url('asset/skydash/') ?>js/file-upload.js"></script>
+ <script src="<?= base_url('asset/skydash/') ?>js/typeahead.js"></script>
+ <script src="<?= base_url('asset/skydash/') ?>js/select2.js"></script>
  <!-- Custom js for this page-->
  <script src="<?= base_url('asset/skydash/') ?>js/dashboard.js"></script>
  <script src="<?= base_url('asset/skydash/') ?>js/Chart.roundedBarCharts.js"></script>
+
+
  <!-- End custom js for this page-->
  <link href="<?= base_url('asset/') ?>datatables/datatables.min.css" rel="stylesheet">
 
  <script src="<?= base_url('asset/') ?>datatables/datatables.min.js"></script>
 
+
  <script>
  	$('#myTable').DataTable({
+ 		select: true
+ 	});
+
+ 	$('.tbl').DataTable({
  		select: true
  	});
  </script>

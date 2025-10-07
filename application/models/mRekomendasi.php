@@ -12,6 +12,12 @@ class mRekomendasi extends CI_Model
 
 		return $this->db->get()->result();
 	}
+	public function pelanggan()
+	{
+		$this->db->select('*');
+		$this->db->from('pelanggan');
+		return $this->db->get()->result();
+	}
 }
 
 /* End of file mRekomendasi.php */

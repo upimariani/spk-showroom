@@ -11,14 +11,20 @@
 	<link rel="stylesheet" href="<?= base_url('asset/skydash/') ?>vendors/ti-icons/css/themify-icons.css">
 	<link rel="stylesheet" href="<?= base_url('asset/skydash/') ?>vendors/css/vendor.bundle.base.css">
 	<!-- endinject -->
+	<link rel="stylesheet" href="<?= base_url('asset/skydash/') ?>vendors/mdi/css/materialdesignicons.min.css">
 	<!-- Plugin css for this page -->
 	<link rel="stylesheet" href="<?= base_url('asset/skydash/') ?>vendors/ti-icons/css/themify-icons.css">
 	<link rel="stylesheet" type="text/css" href="<?= base_url('asset/skydash/') ?>js/select.dataTables.min.css">
 	<!-- End plugin css for this page -->
+
+	<link rel="stylesheet" href="<?= base_url('asset/skydash/') ?>vendors/select2/select2.min.css">
+	<link rel="stylesheet" href="<?= base_url('asset/skydash/') ?>vendors/select2-bootstrap-theme/select2-bootstrap.min.css">
 	<!-- inject:css -->
 	<link rel="stylesheet" href="<?= base_url('asset/skydash/') ?>css/vertical-layout-light/style.css">
 	<!-- endinject -->
 	<link rel="shortcut icon" href="<?= base_url('asset/skydash/') ?>images/favicon.png" />
+	<!-- Plugin css for this page -->
+
 </head>
 
 <body>
@@ -234,6 +240,12 @@
 						<a class="nav-link" href="<?= base_url('Admin/cJenisMobil') ?>">
 							<i class="icon-paper menu-icon"></i>
 							<span class="menu-title">Jenis Mobil</span>
+						</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="<?= base_url('Admin/cPerbandingan') ?>">
+							<i class="icon-contract menu-icon"></i>
+							<span class="menu-title">Perbandingan</span>
 						</a>
 					</li>
 					<li class="nav-item">
