@@ -15,7 +15,8 @@ class cSubKriteria extends CI_Controller
 		$data = array(
 			'id_kriteria' => $id,
 			'kriteria' => $kriteria,
-			'sub_kriteria' => $this->mSubKriteria->select($id)
+			'sub_kriteria' => $this->mSubKriteria->select($id),
+			'dt_subkriteria' => $this->db->query("SELECT * FROM `spk_smart_kriteria` WHERE id='" . $id . "'")->row()
 		);
 		$this->load->view('Admin/Layout/head');
 		$this->load->view('Admin/vSubKriteria', $data);

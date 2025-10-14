@@ -4,9 +4,9 @@
 			<div class="col-lg-12 grid-margin stretch-card">
 				<div class="card">
 					<div class="card-body">
-						<h4 class="card-title">Sub Kriteria <strong><?= $kriteria ?></strong></h4>
+						<h4 class="card-title">Sub Kriteria <strong><?= $dt_subkriteria->nama ?></strong></h4>
 						<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
-							Tambah Data Sub Kriteria <strong><?= $kriteria ?></strong>
+							Tambah Data Sub Kriteria <strong><?= $dt_subkriteria->nama ?></strong>
 						</button>
 						<?php
 						if ($this->session->userdata('success')) {
@@ -28,7 +28,7 @@
 								<form action="<?= base_url('Admin/cSubKriteria/create/' . $id_kriteria . '/' . $kriteria) ?>" method="POST">
 									<div class="modal-content">
 										<div class="modal-header">
-											<h5 class="modal-title" id="exampleModalLabel">Tambah Data Sub Kriteria <strong><?= $kriteria ?></strong></h5>
+											<h5 class="modal-title" id="exampleModalLabel">Tambah Data Sub Kriteria <strong><?= $dt_subkriteria->nama ?></strong></h5>
 											<button type="button" class="close" data-dismiss="modal" aria-label="Close">
 												<span aria-hidden="true">&times;</span>
 											</button>

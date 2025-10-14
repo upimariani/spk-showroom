@@ -35,9 +35,22 @@
 									</div>
 									<div class="modal-body">
 										<div class="form-group row">
-											<label for="exampleInputUsername2" class="col-sm-3 col-form-label">Nama Mobil</label>
+											<label for="exampleInputUsername2" class="col-sm-3 col-form-label">Jenis Mobil</label>
 											<div class="col-sm-9">
-												<input type="text" class="form-control" id="exampleInputUsername2" placeholder="Masukkan Nama Mobil" name="nama" required>
+												<select class="form-control" name="jenis" required>
+													<option value="">---Pilih Jenis Mobil---</option>
+													<option value="MPV">MPV</option>
+													<option value="SUV">SUV</option>
+													<option value="City Car">City Car</option>
+													<option value="Hatchback">Hatchback</option>
+													<option value="Sedan">Sedan</option>
+												</select>
+											</div>
+										</div>
+										<div class="form-group row">
+											<label for="exampleInputUsername2" class="col-sm-3 col-form-label">Merk Mobil</label>
+											<div class="col-sm-9">
+												<input type="text" class="form-control" id="exampleInputUsername2" placeholder="Masukkan Merk Mobil" name="nama" required>
 											</div>
 										</div>
 										<div class="form-group row">
@@ -72,6 +85,18 @@
 											</div>
 										</div>
 										<div class="form-group row">
+											<label for="exampleInputEmail2" class="col-sm-3 col-form-label">Transmisi</label>
+											<div class="col-sm-9">
+												<select class="form-control" name="transmisi" required>
+													<option value="">---Pilih Transmisi---</option>
+													<option value="Manual">Manual</option>
+													<option value="Automatic">Automatic</option>
+													<option value="CVT">CVT</option>
+													<option value="Dual Clutch">Dual Clutch</option>
+												</select>
+											</div>
+										</div>
+										<div class="form-group row">
 											<label for="exampleInputMobile" class="col-sm-3 col-form-label">Gambar Mobil</label>
 											<div class="col-sm-9">
 												<input type="file" name="gambar" class="form-control" id="exampleInputMobile" required>
@@ -91,7 +116,7 @@
 								<thead>
 									<tr>
 										<th>No</th>
-										<th>Nama Mobil</th>
+										<th>Merk Mobil</th>
 										<th>Tahun</th>
 										<th>Harga</th>
 										<th>Kondisi Interior</th>
@@ -106,7 +131,10 @@
 									?>
 										<tr>
 											<td><?= $no++ ?>.</td>
-											<td><a href="<?= base_url('asset/gambar/' . $value->gambar) ?>"><img src="<?= base_url('asset/gambar/' . $value->gambar) ?>" alt="image" /></a> <?= $value->nama_jenis ?></td>
+											<td>
+												<a href="<?= base_url('asset/gambar/' . $value->gambar) ?>"><img src="<?= base_url('asset/gambar/' . $value->gambar) ?>" alt="image" /></a> <?= $value->nama_jenis ?><br>
+												<strong><?= $value->jenis ?></strong> <?= $value->transmisi ?>
+											</td>
 											<td><?= $value->tahun ?></td>
 											<td>Rp. <?= number_format($value->harga)  ?></td>
 											<td><?= $value->kondisi ?></td>
@@ -144,9 +172,32 @@
 					</div>
 					<div class="modal-body">
 						<div class="form-group row">
-							<label for="exampleInputUsername2" class="col-sm-3 col-form-label">Nama Mobil</label>
+							<label for="exampleInputUsername2" class="col-sm-3 col-form-label">Jenis Mobil</label>
 							<div class="col-sm-9">
-								<input type="text" value="<?= $value->nama_jenis ?>" class="form-control" id="exampleInputUsername2" placeholder="Masukkan Nama Mobil" name="nama" required>
+								<select class="form-control" name="jenis" required>
+									<option value="">---Pilih Jenis Mobil---</option>
+									<option <?php if ($value->jenis == 'MPV') {
+												echo 'selected';
+											} ?> value="MPV">MPV</option>
+									<option <?php if ($value->jenis == 'SUV') {
+												echo 'selected';
+											} ?> value="SUV">SUV</option>
+									<option <?php if ($value->jenis == 'City') {
+												echo 'selected';
+											} ?> value="City Car">City Car</option>
+									<option <?php if ($value->jenis == 'Hatchback') {
+												echo 'selected';
+											} ?> value="Hatchback">Hatchback</option>
+									<option <?php if ($value->jenis == 'Sedan') {
+												echo 'selected';
+											} ?> value="Sedan">Sedan</option>
+								</select>
+							</div>
+						</div>
+						<div class="form-group row">
+							<label for="exampleInputUsername2" class="col-sm-3 col-form-label">Merk Mobil</label>
+							<div class="col-sm-9">
+								<input type="text" value="<?= $value->nama_jenis ?>" class="form-control" id="exampleInputUsername2" placeholder="Masukkan Merk Mobil" name="nama" required>
 							</div>
 						</div>
 						<div class="form-group row">
@@ -188,6 +239,26 @@
 							<label for="exampleInputMobile" class="col-sm-3 col-form-label">Kapasitas Orang</label>
 							<div class="col-sm-9">
 								<input type="number" value="<?= $value->kapasitas ?>" name="kapasitas" class="form-control" id="exampleInputMobile" placeholder="Masukkan Kapasitas Orang" required>
+							</div>
+						</div>
+						<div class="form-group row">
+							<label for="exampleInputEmail2" class="col-sm-3 col-form-label">Transmisi</label>
+							<div class="col-sm-9">
+								<select class="form-control" name="transmisi" required>
+									<option value="">---Pilih Transmisi---</option>
+									<option <?php if ($value->transmisi == 'Manual') {
+												echo 'selected';
+											} ?> value="Manual">Manual</option>
+									<option <?php if ($value->transmisi == 'Automatic') {
+												echo 'selected';
+											} ?> value="Automatic">Automatic</option>
+									<option <?php if ($value->transmisi == 'CVT') {
+												echo 'selected';
+											} ?> value="CVT">CVT</option>
+									<option <?php if ($value->transmisi == 'Dual Clutch') {
+												echo 'selected';
+											} ?> value="Dual Clutch">Dual Clutch</option>
+								</select>
 							</div>
 						</div>
 						<div class="form-group row">

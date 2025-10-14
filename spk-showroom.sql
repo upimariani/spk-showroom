@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Sep 30, 2025 at 05:24 PM
+-- Generation Time: Oct 14, 2025 at 04:29 PM
 -- Server version: 10.4.6-MariaDB
 -- PHP Version: 7.3.9
 
@@ -31,24 +31,27 @@ SET time_zone = "+00:00";
 CREATE TABLE `hasil_smart` (
   `id_hasil_smart` int(11) NOT NULL,
   `id_penilaian` int(11) NOT NULL,
+  `id_pelanggan` int(11) NOT NULL,
   `b_kondisi` int(11) NOT NULL,
   `b_kapasitas` int(11) NOT NULL,
   `b_tahun` int(11) NOT NULL,
   `b_harga` int(11) NOT NULL,
-  `hasil` float NOT NULL
+  `hasil` float NOT NULL,
+  `acc` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `hasil_smart`
 --
 
-INSERT INTO `hasil_smart` (`id_hasil_smart`, `id_penilaian`, `b_kondisi`, `b_kapasitas`, `b_tahun`, `b_harga`, `hasil`) VALUES
-(1, 1, 4, 3, 4, 4, 1.625),
-(2, 2, 4, 3, 3, 5, 1.25),
-(3, 3, 3, 5, 4, 3, 1.2),
-(4, 4, 2, 4, 4, 4, 1.225),
-(5, 5, 5, 3, 4, 4, 1.875),
-(6, 6, 3, 3, 4, 4, 1.375);
+INSERT INTO `hasil_smart` (`id_hasil_smart`, `id_penilaian`, `id_pelanggan`, `b_kondisi`, `b_kapasitas`, `b_tahun`, `b_harga`, `hasil`, `acc`) VALUES
+(1, 1, 0, 4, 3, 4, 4, 1.625, 0),
+(2, 2, 0, 4, 3, 3, 5, 1.25, 0),
+(3, 3, 0, 3, 5, 4, 3, 1.2, 0),
+(4, 4, 0, 2, 4, 4, 4, 1.225, 0),
+(5, 5, 0, 5, 3, 4, 4, 1.875, 0),
+(6, 6, 0, 3, 3, 4, 4, 1.375, 0),
+(12, 12, 0, 4, 3, 3, 5, 1.25, 0);
 
 -- --------------------------------------------------------
 
@@ -117,11 +120,13 @@ CREATE TABLE `spk_smart_penilaian` (
   `id_penilaian` int(11) NOT NULL,
   `id_alternatif` int(11) NOT NULL,
   `id_kriteria` int(11) NOT NULL,
+  `jenis` varchar(20) NOT NULL,
   `nama_jenis` varchar(125) NOT NULL,
   `kondisi` varchar(15) NOT NULL,
   `kapasitas` varchar(15) NOT NULL,
   `tahun` varchar(15) NOT NULL,
   `harga` varchar(15) NOT NULL,
+  `transmisi` varchar(20) NOT NULL,
   `gambar` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -129,13 +134,14 @@ CREATE TABLE `spk_smart_penilaian` (
 -- Dumping data for table `spk_smart_penilaian`
 --
 
-INSERT INTO `spk_smart_penilaian` (`id_penilaian`, `id_alternatif`, `id_kriteria`, `nama_jenis`, `kondisi`, `kapasitas`, `tahun`, `harga`, `gambar`) VALUES
-(1, 0, 0, 'Toyota Kijang Inova', 'Baik', '4', '2022', '370000000', 'unnamed.png'),
-(2, 0, 0, 'Daihatsu Sigra', 'Baik', '2', '2019', '260000000', 'unnamed.png'),
-(3, 0, 0, 'Mitsubishi Xpander', 'Cukup', '8', '2021', '480000000', 'unnamed.png'),
-(4, 0, 0, 'Suzuki Ertiga', 'Kurang', '6', '2021', '340000000', 'unnamed.png'),
-(5, 0, 0, 'Toyota Avanza', 'Sangat Baik', '4', '2021', '350000000', 'unnamed.png'),
-(6, 0, 0, 'Honda Mobilio', 'Cukup', '4', '2022', '380000000', 'unnamed.png');
+INSERT INTO `spk_smart_penilaian` (`id_penilaian`, `id_alternatif`, `id_kriteria`, `jenis`, `nama_jenis`, `kondisi`, `kapasitas`, `tahun`, `harga`, `transmisi`, `gambar`) VALUES
+(1, 0, 0, 'MPV', 'Toyota Kijang Inova', 'Baik', '4', '2022', '370000000', 'Automatic', 'unnamed.png'),
+(2, 0, 0, 'MPV', 'Daihatsu Sigra', 'Baik', '2', '2019', '260000000', 'Automatic', 'unnamed.png'),
+(3, 0, 0, 'MPV', 'Mitsubishi Xpander', 'Cukup', '8', '2021', '480000000', 'Automatic', 'unnamed.png'),
+(4, 0, 0, 'MPV', 'Suzuki Ertiga', 'Kurang', '6', '2021', '340000000', 'Automatic', 'unnamed.png'),
+(5, 0, 0, 'MPV', 'Toyota Avanza', 'Sangat Baik', '4', '2021', '350000000', 'Automatic', 'unnamed.png'),
+(6, 0, 0, 'MPV', 'Honda Mobilio', 'Cukup', '4', '2022', '380000000', 'Automatic', 'unnamed.png'),
+(12, 0, 0, 'Sedan', 'coba', 'Baik', '5', '2019', '300000000', 'Automatic', 'unnamed4.png');
 
 -- --------------------------------------------------------
 
@@ -221,7 +227,7 @@ ALTER TABLE `sub_kriteria`
 -- AUTO_INCREMENT for table `hasil_smart`
 --
 ALTER TABLE `hasil_smart`
-  MODIFY `id_hasil_smart` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id_hasil_smart` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT for table `hasil_vikor`
@@ -245,7 +251,7 @@ ALTER TABLE `spk_smart_kriteria`
 -- AUTO_INCREMENT for table `spk_smart_penilaian`
 --
 ALTER TABLE `spk_smart_penilaian`
-  MODIFY `id_penilaian` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id_penilaian` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT for table `sub_kriteria`

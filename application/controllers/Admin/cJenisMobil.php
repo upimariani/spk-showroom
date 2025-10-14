@@ -167,7 +167,9 @@ class cJenisMobil extends CI_Controller
 				'kapasitas' => $this->input->post('kapasitas'),
 				'tahun' => $this->input->post('tahun'),
 				'harga' => $this->input->post('harga'),
-				'gambar' => $upload_data['file_name']
+				'gambar' => $upload_data['file_name'],
+				'jenis' => $this->input->post('jenis'),
+				'transmisi' => $this->input->post('transmisi')
 			);
 			$this->mJenisMobil->insert($data);
 
@@ -207,7 +209,9 @@ class cJenisMobil extends CI_Controller
 				'kapasitas' => $this->input->post('kapasitas'),
 				'tahun' => $this->input->post('tahun'),
 				'harga' => $this->input->post('harga'),
-				'gambar' => $upload_data['file_name']
+				'gambar' => $upload_data['file_name'],
+				'jenis' => $this->input->post('jenis'),
+				'transmisi' => $this->input->post('transmisi')
 			);
 			$this->mJenisMobil->update($id, $data);
 
@@ -224,7 +228,9 @@ class cJenisMobil extends CI_Controller
 			'kondisi' => $this->input->post('kondisi'),
 			'kapasitas' => $this->input->post('kapasitas'),
 			'tahun' => $this->input->post('tahun'),
-			'harga' => $this->input->post('harga')
+			'harga' => $this->input->post('harga'),
+			'jenis' => $this->input->post('jenis'),
+			'transmisi' => $this->input->post('transmisi')
 		);
 		$this->mJenisMobil->update($id, $data);
 
