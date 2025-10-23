@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 14, 2025 at 04:29 PM
+-- Generation Time: Oct 23, 2025 at 03:35 AM
 -- Server version: 10.4.6-MariaDB
 -- PHP Version: 7.3.9
 
@@ -126,7 +126,6 @@ CREATE TABLE `spk_smart_penilaian` (
   `kapasitas` varchar(15) NOT NULL,
   `tahun` varchar(15) NOT NULL,
   `harga` varchar(15) NOT NULL,
-  `transmisi` varchar(20) NOT NULL,
   `gambar` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -134,14 +133,24 @@ CREATE TABLE `spk_smart_penilaian` (
 -- Dumping data for table `spk_smart_penilaian`
 --
 
-INSERT INTO `spk_smart_penilaian` (`id_penilaian`, `id_alternatif`, `id_kriteria`, `jenis`, `nama_jenis`, `kondisi`, `kapasitas`, `tahun`, `harga`, `transmisi`, `gambar`) VALUES
-(1, 0, 0, 'MPV', 'Toyota Kijang Inova', 'Baik', '4', '2022', '370000000', 'Automatic', 'unnamed.png'),
-(2, 0, 0, 'MPV', 'Daihatsu Sigra', 'Baik', '2', '2019', '260000000', 'Automatic', 'unnamed.png'),
-(3, 0, 0, 'MPV', 'Mitsubishi Xpander', 'Cukup', '8', '2021', '480000000', 'Automatic', 'unnamed.png'),
-(4, 0, 0, 'MPV', 'Suzuki Ertiga', 'Kurang', '6', '2021', '340000000', 'Automatic', 'unnamed.png'),
-(5, 0, 0, 'MPV', 'Toyota Avanza', 'Sangat Baik', '4', '2021', '350000000', 'Automatic', 'unnamed.png'),
-(6, 0, 0, 'MPV', 'Honda Mobilio', 'Cukup', '4', '2022', '380000000', 'Automatic', 'unnamed.png'),
-(12, 0, 0, 'Sedan', 'coba', 'Baik', '5', '2019', '300000000', 'Automatic', 'unnamed4.png');
+INSERT INTO `spk_smart_penilaian` (`id_penilaian`, `id_alternatif`, `id_kriteria`, `jenis`, `nama_jenis`, `kondisi`, `kapasitas`, `tahun`, `harga`, `gambar`) VALUES
+(1, 1, 1, 'MVP', 'Toyota Avanza', 'Baik', '6', '2023', '215000000', 'unnamed.png'),
+(2, 1, 1, 'MVP', 'Daihatsu Xenia', 'Baik', '5', '2023', '220000000', 'unnamed.png'),
+(3, 1, 1, 'MVP', 'Mitsubishi Xpander', 'Baik', '6', '2023', '240000000', 'unnamed.png'),
+(4, 1, 1, 'MVP', 'Toyota Veloz', 'Baik', '6', '2023', '255000000', 'unnamed.png'),
+(5, 1, 1, 'MVP', 'Suzuki Ertiga', 'Baik', '6', '2023', '215000000', 'unnamed.png'),
+(6, 1, 1, 'MVP', 'Toyota Kijang Innova Zenix', 'Sangat Baik', '8', '2023', '375000000', 'unnamed.png'),
+(7, 1, 1, 'MVP', 'Toyota Calya', 'Baik', '6', '2023', '165000000', 'unnamed.png'),
+(8, 1, 1, 'MVP', 'Honda BR-V', 'Sangat Baik', '8', '2023', '265000000', 'unnamed.png'),
+(9, 1, 1, 'SUV', 'Toyota Rush', 'Sangat Baik', '6', '2023', '270000000', 'unnamed.png'),
+(10, 1, 1, 'SUV', 'Daihatsu Terios', 'Baik', '6', '2023', '235000000', 'unnamed.png'),
+(11, 1, 1, 'SUV', 'Toyota Fortuner', 'Sangat Baik', '7', '2023', '565000000', 'unnamed.png'),
+(12, 1, 1, 'SUV', 'Mitsubishi Pajero Sport', 'Sangat Baik', '7', '2023', '540000000', 'unnamed.png'),
+(13, 1, 1, 'SUV', 'Suzuki XL7', 'Baik', '5', '2023', '250000000', 'unnamed.png'),
+(14, 1, 1, 'SUV', 'Honda CR-V (All New)', 'Baik', '6', '2023', '625000000', 'unnamed.png'),
+(15, 1, 1, 'City Car', 'Honda Brio Satya/RS', 'Baik', '5', '2023', '160000000', 'unnamed.png'),
+(16, 1, 1, 'City Car', 'Toyota Agya', 'Baik', '4', '2023', '170000000', 'unnamed.png'),
+(17, 1, 1, 'City Car', 'Daihatsu Ayla (All New', 'Baik', '4', '2023', '135000000', 'unnamed.png');
 
 -- --------------------------------------------------------
 
@@ -251,7 +260,7 @@ ALTER TABLE `spk_smart_kriteria`
 -- AUTO_INCREMENT for table `spk_smart_penilaian`
 --
 ALTER TABLE `spk_smart_penilaian`
-  MODIFY `id_penilaian` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `id_penilaian` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 
 --
 -- AUTO_INCREMENT for table `sub_kriteria`

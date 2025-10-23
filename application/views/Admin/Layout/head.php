@@ -239,15 +239,15 @@
 					<li class="nav-item">
 						<a class="nav-link" href="<?= base_url('Admin/cJenisMobil') ?>">
 							<i class="icon-paper menu-icon"></i>
-							<span class="menu-title">Jenis Mobil</span>
+							<span class="menu-title">Mobil</span>
 						</a>
 					</li>
-					<li class="nav-item">
+					<!-- <li class="nav-item">
 						<a class="nav-link" href="<?= base_url('Admin/cPerbandingan') ?>">
 							<i class="icon-contract menu-icon"></i>
 							<span class="menu-title">Perbandingan</span>
 						</a>
-					</li>
+					</li> -->
 					<li class="nav-item">
 						<a class="nav-link" href="<?= base_url('Admin/cRekomendasi') ?>">
 							<i class="icon-bar-graph menu-icon"></i>

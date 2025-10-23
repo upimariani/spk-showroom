@@ -42,8 +42,8 @@
 													<option value="MPV">MPV</option>
 													<option value="SUV">SUV</option>
 													<option value="City Car">City Car</option>
-													<option value="Hatchback">Hatchback</option>
-													<option value="Sedan">Sedan</option>
+													<!-- <option value="Hatchback">Hatchback</option>
+													<option value="Sedan">Sedan</option> -->
 												</select>
 											</div>
 										</div>
@@ -84,7 +84,7 @@
 												<input type="number" name="kapasitas" class="form-control" id="exampleInputMobile" placeholder="Masukkan Kapasitas Orang" required>
 											</div>
 										</div>
-										<div class="form-group row">
+										<!-- <div class="form-group row">
 											<label for="exampleInputEmail2" class="col-sm-3 col-form-label">Transmisi</label>
 											<div class="col-sm-9">
 												<select class="form-control" name="transmisi" required>
@@ -95,7 +95,7 @@
 													<option value="Dual Clutch">Dual Clutch</option>
 												</select>
 											</div>
-										</div>
+										</div> -->
 										<div class="form-group row">
 											<label for="exampleInputMobile" class="col-sm-3 col-form-label">Gambar Mobil</label>
 											<div class="col-sm-9">
@@ -133,7 +133,7 @@
 											<td><?= $no++ ?>.</td>
 											<td>
 												<a href="<?= base_url('asset/gambar/' . $value->gambar) ?>"><img src="<?= base_url('asset/gambar/' . $value->gambar) ?>" alt="image" /></a> <?= $value->nama_jenis ?><br>
-												<strong><?= $value->jenis ?></strong> <?= $value->transmisi ?>
+												<strong><?= $value->jenis ?></strong>
 											</td>
 											<td><?= $value->tahun ?></td>
 											<td>Rp. <?= number_format($value->harga)  ?></td>
@@ -185,12 +185,7 @@
 									<option <?php if ($value->jenis == 'City') {
 												echo 'selected';
 											} ?> value="City Car">City Car</option>
-									<option <?php if ($value->jenis == 'Hatchback') {
-												echo 'selected';
-											} ?> value="Hatchback">Hatchback</option>
-									<option <?php if ($value->jenis == 'Sedan') {
-												echo 'selected';
-											} ?> value="Sedan">Sedan</option>
+
 								</select>
 							</div>
 						</div>
@@ -241,7 +236,7 @@
 								<input type="number" value="<?= $value->kapasitas ?>" name="kapasitas" class="form-control" id="exampleInputMobile" placeholder="Masukkan Kapasitas Orang" required>
 							</div>
 						</div>
-						<div class="form-group row">
+						<!-- <div class="form-group row">
 							<label for="exampleInputEmail2" class="col-sm-3 col-form-label">Transmisi</label>
 							<div class="col-sm-9">
 								<select class="form-control" name="transmisi" required>
@@ -260,7 +255,7 @@
 											} ?> value="Dual Clutch">Dual Clutch</option>
 								</select>
 							</div>
-						</div>
+						</div> -->
 						<div class="form-group row">
 							<label for="exampleInputMobile" class="col-sm-3 col-form-label">Gambar Mobil</label>
 							<div class="col-sm-9">

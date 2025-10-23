@@ -9,25 +9,24 @@
 						<h5>Filter: </h5>
 						<form action="<?= base_url('Admin/cRekomendasi/filter') ?>" method="POST">
 							<div class="row">
-								<div class="col-lg-4">
+								<div class="col-lg-6">
 									<div class="form-group">
-										<select class="form-control" name="jenis" required>
+										<select class="form-control" id="jenis" name="jenis">
 											<option value="">---Pilih Jenis Mobil---</option>
 											<!-- <option value="all">All</option> -->
-											<option value="MPV">MPV</option>
+											<option value="MVP">MVP</option>
 											<option value="SUV">SUV</option>
 											<option value="City Car">City Car</option>
-											<option value="Hatchback">Hatchback</option>
-											<option value="Sedan">Sedan</option>
+											<!-- <option value="Hatchback">Hatchback</option>
+											<option value="Sedan">Sedan</option> -->
 										</select>
 									</div>
 								</div>
 
-								<div class="col-lg-4">
+								<div class="col-lg-6">
 									<div class="form-group">
-										<select class="form-control" name="nama" required>
+										<select class="form-control" id="merk" name="nama">
 											<option value="">---Pilih Merk Mobil---</option>
-											<option value="all">All</option>
 											<?php
 											foreach ($mobil as $key => $value) {
 											?>
@@ -38,21 +37,21 @@
 										</select>
 									</div>
 								</div>
-								<div class="col-lg-4">
+								<!-- <div class="col-lg-4">
 									<div class="form-group">
-										<select class="form-control" name="transmisi" required>
+										<select class="form-control" name="transmisi">
 											<option value="">---Pilih Transmisi---</option>
-											<!-- <option value="all">All</option> -->
+											
 											<option value="Manual">Manual</option>
 											<option value="Automatic">Automatic</option>
 											<option value="CVT">CVT</option>
 											<option value="Dual Clutch">Dual Clutch</option>
 										</select>
 									</div>
-								</div>
+								</div> -->
 								<div class="col-lg-3">
 									<div class="form-group">
-										<select class="form-control" name="kondisi" required>
+										<select class="form-control" name="kondisi">
 											<option value="">---Pilih Kondisi Mobil---</option>
 											<!-- <option value="all">All</option> -->
 											<option value="Sangat Baik">Sangat Baik</option>
@@ -65,7 +64,7 @@
 								</div>
 								<div class="col-lg-3">
 									<div class="form-group">
-										<select class="form-control" name="tahun" required>
+										<select class="form-control" name="tahun">
 											<option value="">---Pilih Tahun Mobil---</option>
 											<!-- <option value="all">All</option> -->
 											<option value="1">Lebih dari Tahun 2021</option>
@@ -77,7 +76,7 @@
 								</div>
 								<div class="col-lg-3">
 									<div class="form-group">
-										<select class="form-control" name="kapasitas" required>
+										<select class="form-control" name="kapasitas">
 											<option value="">---Pilih Kapasitas---</option>
 											<!-- <option value="all">All</option> -->
 											<option value="1">Lebih dari 8 orang</option>
@@ -88,7 +87,7 @@
 								</div>
 								<div class="col-lg-3">
 									<div class="form-group">
-										<select class="form-control" name="harga" required>
+										<select class="form-control" name="harga">
 											<option value="">---Pilih Range Harga---</option>
 											<!-- <option value="all">All</option> -->
 											<option value="1">Kurang dari Rp. 300 juta</option>
@@ -143,7 +142,7 @@
 										<div class="card" style="width: 18rem;">
 											<img src="<?= base_url('asset/gambar/' . $value->gambar) ?>" class="card-img-top" alt="...">
 											<div class="card-body">
-												<h5 class="card-title"><?= $value->jenis ?> | <?= $value->nama_jenis ?><br> <?= $value->transmisi ?></h5>
+												<h5 class="card-title"><?= $value->jenis ?> | <?= $value->nama_jenis ?></h5>
 												<p class="card-text">Kondisi: <?= $value->kondisi ?><br>
 													Tahun: <?= $value->tahun ?><br>
 													Kapasitas Penumpang: <?= $value->kapasitas ?> orang</p>

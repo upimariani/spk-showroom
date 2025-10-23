@@ -169,7 +169,7 @@ class cJenisMobil extends CI_Controller
 				'harga' => $this->input->post('harga'),
 				'gambar' => $upload_data['file_name'],
 				'jenis' => $this->input->post('jenis'),
-				'transmisi' => $this->input->post('transmisi')
+				// 'transmisi' => $this->input->post('transmisi')
 			);
 			$this->mJenisMobil->insert($data);
 
@@ -211,7 +211,7 @@ class cJenisMobil extends CI_Controller
 				'harga' => $this->input->post('harga'),
 				'gambar' => $upload_data['file_name'],
 				'jenis' => $this->input->post('jenis'),
-				'transmisi' => $this->input->post('transmisi')
+				// 'transmisi' => $this->input->post('transmisi')
 			);
 			$this->mJenisMobil->update($id, $data);
 

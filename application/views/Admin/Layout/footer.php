@@ -53,6 +53,23 @@
  		select: true
  	});
  </script>
+ <script>
+ 	document.getElementById('jenis').addEventListener('change', function() {
+ 		var jenis = this.value;
+
+ 		// Buat request AJAX ke controller
+ 		var xhr = new XMLHttpRequest();
+ 		xhr.open('GET', '<?= base_url('Admin/cRekomendasi/get_merk') ?>?jenis=' + jenis, true);
+
+ 		xhr.onload = function() {
+ 			if (xhr.status === 200) {
+ 				document.getElementById('merk').innerHTML = xhr.responseText;
+ 			}
+ 		};
+
+ 		xhr.send();
+ 	});
+ </script>
  </body>
 
  </html>

@@ -12,31 +12,43 @@ class mRekomendasi extends CI_Model
 
 		return $this->db->get()->result();
 	}
-
-	public function filter_all($jenis, $transmisi, $nama, $kondisi, $kapasitas_a, $kapasitas_b, $tahun_a, $tahun_b, $harga_a, $harga_b)
+	public function filter($jenis = null, $transmisi = null, $nama = null, $kondisi = null, $kapasitas_a = null, $kapasitas_b = null, $tahun_a = null, $tahun_b = null, $harga_a = null, $harga_b = null)
 	{
-		//filer all
-		return $this->db->query("SELECT * FROM `spk_smart_penilaian` JOIN hasil_smart ON spk_smart_penilaian.id_penilaian=hasil_smart.id_penilaian WHERE jenis='" . $jenis . "' AND transmisi='" . $transmisi . "' AND nama_jenis='" . $nama . "' AND kondisi='" . $kondisi . "' AND kapasitas >= " . $kapasitas_b . " AND kapasitas <= " . $kapasitas_a . " AND tahun >= " . $tahun_b . " AND tahun <= " . $tahun_a . " AND harga >= " . $harga_b . " AND harga <= " . $harga_a . " ORDER BY hasil DESC")->result();
-	}
-	public function filer_nama($jenis, $transmisi, $kondisi, $kapasitas_a, $kapasitas_b, $tahun_a, $tahun_b, $harga_a, $harga_b)
-	{
-		return $this->db->query("SELECT * FROM `spk_smart_penilaian` JOIN hasil_smart ON spk_smart_penilaian.id_penilaian=hasil_smart.id_penilaian WHERE jenis='" . $jenis . "' AND transmisi='" . $transmisi . "' AND kondisi='" . $kondisi . "' AND kapasitas >= " . $kapasitas_b . " AND kapasitas <= " . $kapasitas_a . " AND tahun >= " . $tahun_b . " AND tahun <= " . $tahun_a . " AND harga >= " . $harga_b . " AND harga <= " . $harga_a . " ORDER BY hasil DESC")->result();
-	}
-	public function filter_kondisi($jenis, $transmisi, $nama, $kapasitas_a, $kapasitas_b, $tahun_a, $tahun_b, $harga_a, $harga_b)
-	{
-		return $this->db->query("SELECT * FROM `spk_smart_penilaian` JOIN hasil_smart ON spk_smart_penilaian.id_penilaian=hasil_smart.id_penilaian WHERE jenis='" . $jenis . "' AND transmisi='" . $transmisi . "' AND nama_jenis='" . $nama . "' AND kapasitas >= " . $kapasitas_b . " AND kapasitas <= " . $kapasitas_a . " AND tahun >= " . $tahun_b . " AND tahun <= " . $tahun_a . " AND harga >= " . $harga_b . " AND harga <= " . $harga_a . " ORDER BY hasil DESC")->result();
-	}
-	public function filter_kapasitas($jenis, $transmisi, $nama, $kondisi,  $tahun_a, $tahun_b, $harga_a, $harga_b)
-	{
-		return $this->db->query("SELECT * FROM `spk_smart_penilaian` JOIN hasil_smart ON spk_smart_penilaian.id_penilaian=hasil_smart.id_penilaian WHERE jenis='" . $jenis . "' AND transmisi='" . $transmisi . "' AND kondisi='" . $kondisi . "' AND nama_jenis='" . $nama . "' AND tahun >= " . $tahun_b . " AND tahun <= " . $tahun_a . " AND harga >= " . $harga_b . " AND harga <= " . $harga_a . " ORDER BY hasil DESC")->result();
-	}
-	public function filter_tahun($jenis, $transmisi, $nama, $kondisi, $kapasitas_a, $kapasitas_b,  $tahun_b, $harga_a, $harga_b)
-	{
-		return $this->db->query("SELECT * FROM `spk_smart_penilaian` JOIN hasil_smart ON spk_smart_penilaian.id_penilaian=hasil_smart.id_penilaian WHERE jenis='" . $jenis . "' AND transmisi='" . $transmisi . "' AND kondisi='" . $kondisi . "' AND kapasitas >= " . $kapasitas_b . " AND kapasitas <= " . $kapasitas_a . " AND tahun >= " . $tahun_b . " AND nama_jenis='" . $nama . "' AND harga >= " . $harga_b . " AND harga <= " . $harga_a . " ORDER BY hasil DESC")->result();
-	}
-	public function filter_harga($jenis, $transmisi, $nama, $kondisi, $kapasitas_a, $kapasitas_b, $tahun_a, $tahun_b)
-	{
-		return $this->db->query("SELECT * FROM `spk_smart_penilaian` JOIN hasil_smart ON spk_smart_penilaian.id_penilaian=hasil_smart.id_penilaian WHERE jenis='" . $jenis . "' AND transmisi='" . $transmisi . "' AND kondisi='" . $kondisi . "' AND kapasitas >= " . $kapasitas_b . " AND kapasitas <= " . $kapasitas_a . " AND tahun >= " . $tahun_b . " AND tahun <= " . $tahun_a . " AND nama_jenis='" . $nama . "' ORDER BY hasil DESC")->result();
+		$this->db->select('*');
+		$this->db->from('spk_smart_penilaian');
+		$this->db->join('hasil_smart', 'spk_smart_penilaian.id_penilaian = hasil_smart.id_penilaian', 'left');
+		if (!empty($jenis)) {
+			$this->db->where('jenis', $jenis);
+		}
+		if (!empty($transmisi)) {
+			$this->db->where('transmisi', $transmisi);
+		}
+		if (!empty($nama)) {
+			$this->db->where('nama_jenis', $nama);
+		}
+		if (!empty($kondisi)) {
+			$this->db->where('kondisi', $kondisi);
+		}
+		if (!empty($kapasitas_b)) {
+			$this->db->where('kapasitas >=', (int) $kapasitas_b);
+		}
+		if (!empty($kapasitas_a)) {
+			$this->db->where('kapasitas <=', (int) $kapasitas_a);
+		}
+		if (!empty($tahun_b)) {
+			$this->db->where('tahun >=', (int) $tahun_b);
+		}
+		if (!empty($tahun_a)) {
+			$this->db->where('tahun <=', (int) $tahun_a);
+		}
+		if (!empty($harga_b)) {
+			$this->db->where('harga >=', (int) $harga_b);
+		}
+		if (!empty($harga_a)) {
+			$this->db->where('harga <=', (int) $harga_a);
+		}
+		$this->db->order_by('hasil', 'desc');
+		return $this->db->get()->result();
 	}
 }
 
