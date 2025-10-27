@@ -9,7 +9,6 @@ class mRekomendasi extends CI_Model
 		$this->db->from('hasil_smart');
 		$this->db->join('spk_smart_penilaian', 'spk_smart_penilaian.id_penilaian = hasil_smart.id_penilaian', 'left');
 		$this->db->order_by('hasil', 'desc');
-
 		return $this->db->get()->result();
 	}
 	public function filter($jenis = null, $transmisi = null, $nama = null, $kondisi = null, $kapasitas_a = null, $kapasitas_b = null, $tahun_a = null, $tahun_b = null, $harga_a = null, $harga_b = null)

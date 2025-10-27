@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 23, 2025 at 03:35 AM
+-- Generation Time: Oct 27, 2025 at 03:54 PM
 -- Server version: 10.4.6-MariaDB
 -- PHP Version: 7.3.9
 
@@ -31,7 +31,6 @@ SET time_zone = "+00:00";
 CREATE TABLE `hasil_smart` (
   `id_hasil_smart` int(11) NOT NULL,
   `id_penilaian` int(11) NOT NULL,
-  `id_pelanggan` int(11) NOT NULL,
   `b_kondisi` int(11) NOT NULL,
   `b_kapasitas` int(11) NOT NULL,
   `b_tahun` int(11) NOT NULL,
@@ -44,14 +43,58 @@ CREATE TABLE `hasil_smart` (
 -- Dumping data for table `hasil_smart`
 --
 
-INSERT INTO `hasil_smart` (`id_hasil_smart`, `id_penilaian`, `id_pelanggan`, `b_kondisi`, `b_kapasitas`, `b_tahun`, `b_harga`, `hasil`, `acc`) VALUES
-(1, 1, 0, 4, 3, 4, 4, 1.625, 0),
-(2, 2, 0, 4, 3, 3, 5, 1.25, 0),
-(3, 3, 0, 3, 5, 4, 3, 1.2, 0),
-(4, 4, 0, 2, 4, 4, 4, 1.225, 0),
-(5, 5, 0, 5, 3, 4, 4, 1.875, 0),
-(6, 6, 0, 3, 3, 4, 4, 1.375, 0),
-(12, 12, 0, 4, 3, 3, 5, 1.25, 0);
+INSERT INTO `hasil_smart` (`id_hasil_smart`, `id_penilaian`, `b_kondisi`, `b_kapasitas`, `b_tahun`, `b_harga`, `hasil`, `acc`) VALUES
+(1, 1, 4, 4, 4, 5, 1.6, 1),
+(2, 2, 4, 3, 4, 5, 1.5, 1),
+(3, 3, 4, 4, 4, 5, 1.6, 1),
+(4, 4, 4, 4, 4, 5, 1.6, 1),
+(5, 5, 4, 4, 4, 5, 1.6, 1),
+(6, 6, 5, 5, 4, 4, 2.2625, 1),
+(7, 7, 4, 4, 4, 5, 1.6, 1),
+(8, 8, 5, 5, 4, 5, 2.45, 1),
+(9, 9, 5, 4, 4, 5, 2.35, 1),
+(10, 10, 4, 4, 4, 5, 1.6, 1),
+(11, 11, 5, 4, 4, 2, 1.7875, 1),
+(12, 12, 5, 4, 4, 2, 1.7875, 1),
+(13, 13, 4, 3, 4, 5, 1.5, 1),
+(14, 14, 4, 4, 4, 1, 0.85, 1),
+(15, 15, 4, 3, 4, 5, 1.5, 1),
+(16, 16, 4, 3, 4, 5, 1.5, 1),
+(17, 17, 4, 3, 4, 5, 1.5, 1),
+(18, 18, 4, 3, 1, 5, 0.75, 1),
+(19, 19, 4, 3, 2, 5, 1, 1),
+(20, 20, 4, 4, 1, 5, 0.85, 1),
+(21, 21, 4, 4, 2, 5, 1.1, 1),
+(22, 22, 4, 4, 1, 5, 0.85, 1),
+(23, 23, 4, 4, 1, 5, 0.85, 1),
+(24, 24, 4, 4, 3, 5, 1.35, 1),
+(25, 25, 4, 4, 1, 5, 0.85, 1),
+(26, 26, 4, 4, 1, 5, 0.85, 1),
+(27, 27, 4, 4, 3, 3, 0.975, 1),
+(28, 28, 4, 4, 4, 5, 1.6, 1),
+(29, 29, 4, 4, 4, 5, 1.6, 1),
+(30, 30, 4, 3, 1, 5, 0.75, 1),
+(31, 31, 4, 3, 1, 5, 0.75, 1),
+(32, 32, 4, 4, 2, 5, 1.1, 1),
+(33, 33, 4, 5, 1, 5, 0.95, 1),
+(34, 34, 4, 4, 1, 5, 0.85, 1),
+(35, 35, 4, 4, 4, 4, 1.4125, 1),
+(36, 36, 4, 4, 1, 5, 0.85, 1),
+(37, 37, 4, 4, 1, 5, 0.85, 1),
+(38, 38, 4, 4, 4, 5, 1.6, 1),
+(39, 39, 4, 4, 3, 5, 1.35, 1),
+(40, 40, 4, 4, 2, 5, 1.1, 1),
+(41, 41, 4, 4, 2, 5, 1.1, 1),
+(42, 42, 4, 4, 3, 5, 1.35, 1),
+(43, 43, 4, 3, 1, 5, 0.75, 1),
+(44, 44, 4, 4, 3, 5, 1.35, 1),
+(45, 45, 4, 3, 3, 5, 1.25, 1),
+(46, 46, 4, 4, 1, 5, 0.85, 1),
+(47, 47, 4, 4, 1, 5, 0.85, 1),
+(48, 48, 4, 4, 2, 5, 1.1, 1),
+(49, 49, 4, 4, 2, 4, 0.9125, 1),
+(50, 50, 4, 4, 2, 5, 1.1, 1),
+(51, 51, 4, 4, 4, 5, 1.6, 1);
 
 -- --------------------------------------------------------
 
@@ -150,7 +193,41 @@ INSERT INTO `spk_smart_penilaian` (`id_penilaian`, `id_alternatif`, `id_kriteria
 (14, 1, 1, 'SUV', 'Honda CR-V (All New)', 'Baik', '6', '2023', '625000000', 'unnamed.png'),
 (15, 1, 1, 'City Car', 'Honda Brio Satya/RS', 'Baik', '5', '2023', '160000000', 'unnamed.png'),
 (16, 1, 1, 'City Car', 'Toyota Agya', 'Baik', '4', '2023', '170000000', 'unnamed.png'),
-(17, 1, 1, 'City Car', 'Daihatsu Ayla (All New', 'Baik', '4', '2023', '135000000', 'unnamed.png');
+(17, 1, 1, 'City Car', 'Daihatsu Ayla (All New', 'Baik', '4', '2023', '135000000', 'unnamed.png'),
+(18, 1, 1, 'SUV', 'toyota Rush G M/T', 'Baik', '5', '2011', '110000000', 'unnamed.png'),
+(19, 1, 1, 'SUV', 'toyota Rush TRD Sportivo A/T', 'Baik', '5', '2016', '150000000', 'unnamed.png'),
+(20, 1, 1, 'SUV', 'daihatsu Terios TX A/T', 'Baik', '6', '2010', '120000000', 'unnamed.png'),
+(21, 1, 1, 'SUV', 'daihatsu Terios R M/T Adventure', 'Baik', '6', '2016', '145000000', 'unnamed.png'),
+(22, 1, 1, 'SUV', 'toyota Fortuner 2.7 G', 'Baik', '6', '2005', '135000000', 'unnamed.png'),
+(23, 1, 1, 'SUV', 'toyota Fortuner 2.5 G VNT ', 'Baik', '6', '2012', '200000000', 'unnamed.png'),
+(24, 1, 1, 'SUV', 'toyota Fortuner 2.4 VRZ TRD Sportivo', 'Baik', '6', '2018', '225000000', 'unnamed.png'),
+(25, 1, 1, 'SUV', 'mitsubishi Pajero Sport Exceed 4x2 A/T', 'Baik', '6', '2009', '170000000', 'unnamed.png'),
+(26, 1, 1, 'SUV', 'mitsubishi Pajero Sport V6', 'Baik', '6', '2014', '235000000', 'unnamed.png'),
+(27, 1, 1, 'SUV', 'mitsubishi Pajero Sport Dakar Ultimate 4x2', 'Baik', '6', '2018', '420000000', 'unnamed.png'),
+(28, 1, 1, 'SUV', 'suzuki XL7 Zeta M/T', 'Baik', '6', '2020', '255000000', 'unnamed.png'),
+(29, 1, 1, 'SUV', 'suzuki XL7 Hybrid Beta M/T', 'Baik', '6', '2023', '285000000', 'unnamed.png'),
+(30, 1, 1, 'SUV', 'honda CR-V (Gen 3 - RE)', 'Baik', '5', '2007', '135000000', 'unnamed.png'),
+(31, 1, 1, 'SUV', 'honda CR-V (Gen 4 - RM)', 'Baik', '5', '2012', '160000000', 'unnamed.png'),
+(32, 1, 1, 'SUV', 'honda CR-V Turbo 1.5L (Prestige)', 'Baik', '7', '2017', '275000000', 'unnamed.png'),
+(33, 1, 1, 'MVP', 'toyota Avanza tipe 1.3 E / 1.3 G', 'Baik', '8', '2004', '80000000', 'unnamed.png'),
+(34, 1, 1, 'MVP', 'Toyota avanza tipe 1,5 veloz', 'Baik', '7', '2011', '150000000', 'unnamed.png'),
+(35, 1, 1, 'MVP', 'toyota avanza “All New”', 'Baik', '6', '2021', '319000000', 'unnamed.png'),
+(36, 1, 1, 'MVP', 'Daihatsu Xenia Mi 1.0L', 'Baik', '7', '2004', '90000000', 'unnamed.png'),
+(37, 1, 1, 'MVP', 'daihatsu Xenia D 1.0L', 'Baik', '6', '2011', '70000000', 'unnamed.png'),
+(38, 1, 1, 'MVP', 'daihatsu xenia X 1.3L', 'Baik', '6', '2021', '200000000', 'unnamed.png'),
+(39, 1, 1, 'MVP', 'daihatsu xenia R / 1.5 R', 'Baik', '6', '2019', '245000000', 'unnamed.png'),
+(40, 1, 1, 'MVP', 'mitsubishi Xpander GLX (MT)', 'Baik', '6', '2017', '150000000', 'unnamed.png'),
+(41, 1, 1, 'MVP', 'mitsubishi Xpander Ultimate (AT)', 'Baik', '6', '2017', '185000000', 'unnamed.png'),
+(42, 1, 1, 'MVP', 'mitsubishi Xpander Cross Premium', 'Baik', '6', '2019', '210000000', 'unnamed.png'),
+(43, 1, 1, 'MVP', 'suzuki Ertiga GX', 'Baik', '5', '2012', '120000000', 'unnamed.png'),
+(44, 1, 1, 'MVP', 'suzuki All New Ertiga GX', 'Baik', '6', '2018', '150000000', 'unnamed.png'),
+(45, 1, 1, 'MVP', 'suzuki Ertiga Suzuki Sport', 'Baik', '5', '2019', '175000000', 'unnamed.png'),
+(46, 1, 1, 'MVP', 'toyota kijang Innova E / G / V', 'Baik', '6', '2004', '95000000', 'unnamed.png'),
+(47, 1, 1, 'MVP', 'toyota kijang Facelift (Grand New Innova)', 'Baik', '6', '2008', '110000000', 'unnamed.png'),
+(48, 1, 1, 'MVP', 'toyota kijang Innova Reborn G / V', 'Baik', '6', '2015', '235000000', 'unnamed.png'),
+(49, 1, 1, 'MVP', 'toyota kijang Innova Venturer', 'Baik', '6', '2017', '310000000', 'unnamed.png'),
+(50, 1, 1, 'MVP', 'honda BR-V 1.5 S M/T', 'Baik', '6', '2016', '136000000', 'unnamed.png'),
+(51, 1, 1, 'MVP', 'All New BR-V 1.5 S M/T', 'Baik', '6', '2021', '295000000', 'unnamed.png');
 
 -- --------------------------------------------------------
 
@@ -236,7 +313,7 @@ ALTER TABLE `sub_kriteria`
 -- AUTO_INCREMENT for table `hasil_smart`
 --
 ALTER TABLE `hasil_smart`
-  MODIFY `id_hasil_smart` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `id_hasil_smart` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=52;
 
 --
 -- AUTO_INCREMENT for table `hasil_vikor`
@@ -260,7 +337,7 @@ ALTER TABLE `spk_smart_kriteria`
 -- AUTO_INCREMENT for table `spk_smart_penilaian`
 --
 ALTER TABLE `spk_smart_penilaian`
-  MODIFY `id_penilaian` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
+  MODIFY `id_penilaian` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=52;
 
 --
 -- AUTO_INCREMENT for table `sub_kriteria`

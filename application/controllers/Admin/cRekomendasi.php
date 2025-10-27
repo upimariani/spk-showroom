@@ -13,7 +13,7 @@ class cRekomendasi extends CI_Controller
 	public function index()
 	{
 		$data = array(
-			'mobil' => $this->mJenisMobil->select()
+			'mobil' => $this->mRekomendasi->select()
 		);
 		$this->load->view('Admin/Layout/head');
 		$this->load->view('Admin/vRekomendasi', $data);

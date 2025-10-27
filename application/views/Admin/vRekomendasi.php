@@ -49,11 +49,11 @@
 										</select>
 									</div>
 								</div> -->
-								<div class="col-lg-3">
+								<!-- <div class="col-lg-3">
 									<div class="form-group">
 										<select class="form-control" name="kondisi">
 											<option value="">---Pilih Kondisi Mobil---</option>
-											<!-- <option value="all">All</option> -->
+											
 											<option value="Sangat Baik">Sangat Baik</option>
 											<option value="Baik">Baik</option>
 											<option value="Cukup">Cukup</option>
@@ -61,8 +61,8 @@
 											<option value="Buruk">Buruk</option>
 										</select>
 									</div>
-								</div>
-								<div class="col-lg-3">
+								</div> -->
+								<div class="col-lg-4">
 									<div class="form-group">
 										<select class="form-control" name="tahun">
 											<option value="">---Pilih Tahun Mobil---</option>
@@ -74,7 +74,7 @@
 										</select>
 									</div>
 								</div>
-								<div class="col-lg-3">
+								<div class="col-lg-4">
 									<div class="form-group">
 										<select class="form-control" name="kapasitas">
 											<option value="">---Pilih Kapasitas---</option>
@@ -85,7 +85,7 @@
 										</select>
 									</div>
 								</div>
-								<div class="col-lg-3">
+								<div class="col-lg-4">
 									<div class="form-group">
 										<select class="form-control" name="harga">
 											<option value="">---Pilih Range Harga---</option>
@@ -142,7 +142,7 @@
 										<div class="card" style="width: 18rem;">
 											<img src="<?= base_url('asset/gambar/' . $value->gambar) ?>" class="card-img-top" alt="...">
 											<div class="card-body">
-												<h5 class="card-title"><?= $value->jenis ?> | <?= $value->nama_jenis ?></h5>
+												<h5 class="card-title"><?= $value->jenis ?> | <?= $value->nama_jenis ?> <span class="badge bg-warning"><?= $value->hasil ?></span></h5>
 												<p class="card-text">Kondisi: <?= $value->kondisi ?><br>
 													Tahun: <?= $value->tahun ?><br>
 													Kapasitas Penumpang: <?= $value->kapasitas ?> orang</p>
